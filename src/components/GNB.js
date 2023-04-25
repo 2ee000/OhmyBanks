@@ -114,7 +114,6 @@ function GNB() {
 
   const GNBWrapper = styled.div`
     width: 636px;
-    height: 70px;
     padding: ${GNBPadding};
     gap: ${GNBGap};
     display: flex;
@@ -126,6 +125,7 @@ function GNB() {
     border: 1px solid #888888;
     border-radius: ${GNBRadius}px;  
   `
+  // height: 70으로 설정해야함
 
   const GNBList = styled.div`
     ${GNBListWidth};
