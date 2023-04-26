@@ -32,6 +32,10 @@ function GNB() {
     }
   }
 
+  const GoToLogin = () => {
+    window.location.replace('/login');
+  }
+
   const DetaileMenu = () => {
     if(ButtonImg === GNBMenuButtonImg) {
       return(
@@ -45,7 +49,7 @@ function GNB() {
           <GNBRowBar/>
           <GNBButtons>
             <GNBSearchButton/>
-            <GNBLoginButton/>
+            <GNBLoginButton onClick={GoToLogin}/>
           </GNBButtons>
           <GNBMenuButton onClick={MenuButtonClick}/>
         </GNBWrapper>

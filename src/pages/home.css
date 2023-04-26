@@ -1,5 +1,8 @@
 * {
+  cursor: pointer;
   width: 100;
   position: sticky;
   justify-content: space-between;
+  align-self: center;
+  background-color: #00a;
 }
