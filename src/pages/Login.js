@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 import background from '../assets/background.png';
-import SaveIDCheckImgGray from '../assets/save_id_check_gray.png';
-import SaveIDCheckImgGreen from '../assets/save_id_check_green.png';
+import CheckBoxImgGray from '../assets/checkbox_gray.png';
+import CheckBoxImgGreen from '../assets/checkbox_green.png';
 import LoginNaverImg from '../assets/login_naver.png';
 import LoginKakaoImg from '../assets/login_kakao.png';
 import LoginAppleImg from '../assets/login_apple.png';
@@ -130,13 +130,15 @@ function Login() {
     margin-top: 6px;
   `;
 
-  const SaveIDCheck = styled.input`
+  const CheckBox = styled.input`
     appearance: none;
     width: 16px;
     height: 16px;
-    background-image: url(${SaveIDCheckImgGray});
+    background-image: url(${CheckBoxImgGray});
+    background-repeat: no-repeat;
+    background-size: cover;
     &:checked {
-      background-image: url(${SaveIDCheckImgGreen});
+      background-image: url(${CheckBoxImgGreen});
     }
   `;
 
@@ -258,7 +260,7 @@ function Login() {
                 <Input type='text' placeholder='아이디'/>
                 <Input type='password' placeholder='비밀번호 8자 ~ 20자 입력'/>
                 <SaveID for='checkbox'>
-                  <SaveIDCheck id='checkbox' type='checkbox'/>
+                  <CheckBox id='checkbox' type='checkbox'/>
                   <SaveIDText>아이디 저장</SaveIDText>
                 </SaveID>
               </InputWrapper>

@@ -2,10 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 import background from '../assets/background.png';
-import ArrowImg from '../assets/signup_arrow.png';
+import CheckBoxImgGray from '../assets/checkbox_gray.png';
+import CheckBoxImgGreen from '../assets/checkbox_green.png';
 
 
-function SignupStep1() {
+function SignupStep2() {
   const App = styled.div`
     width: 100%;
     display: flex;
@@ -109,20 +110,23 @@ function SignupStep1() {
   `;
 
   const SignupSubTitle = styled(SignupTitle)`
+    white-space: pre-line;
+    text-align: start;
     font-weight: 400;
     font-size: 16px;
     color: #666666;  
   `;
 
-  const Certification = styled(SignupWrapper)`
+  const SignupSubTitleText = {
+    0: `오마이뱅스 회원이 되시면 여러분의 성향을 분석한 다양한 회원님의\n소비 습관을 확인하실 수 있습니다.`,
+  }
+
+  const Agreement = styled(SignupWrapper)`
     gap: 50px;
   `;
 
-  const SignupWhiteButtons = styled(SignupWrapper)`
-    gap: 10px;
-  `;
-
-  const SignupWhiteButton = styled.button`
+  const SignupWhiteButton = styled.label`
+    cursor: pointer;
     width: 670px;
     height: 108px;
     display: flex;
@@ -143,37 +147,54 @@ function SignupStep1() {
     color: #000000;
   `;
 
-  const Arrow = styled.p`
-    width: 48px;
-    height: 48px;
-    background-image: url(${ArrowImg});
+  const CheckBox = styled.input`
+    appearance: none;
+    width: 40px;
+    height: 40px;
+    background-image: url(${CheckBoxImgGray});
     background-repeat: no-repeat;
     background-size: cover;
+    &:checked {
+      background-image: url(${CheckBoxImgGreen});
+    }
   `;
 
-  const SignupLists = styled(SignupWrapper)`
-    align-items: start;
-    text-align: start;
-    gap: 20px;
+  const AgreementLists = styled(SignupWrapper)`
+    gap: 10px;
   `;
 
-  const SignupList = styled.li`
-    width: 660px;
+  const AgreementList = styled.div`
+    width: 670px;
+    height: 66px;
+    padding: 0px 40px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
     font-family: 'Noto Sans KR';
     font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
+    font-weight: 500;
+    font-size: 20px;
     line-height: 100%;
     letter-spacing: -0.25px;
-    color: #666666;
-    white-space: pre-line;
+    text-decoration-line: underline;
+    color: #000000;
   `;
 
-  const SignupListText = {
-    0: `입력하신 정보는 본인확인을 위해 해당 인증기관에서 직접 수집하며,\n본인 확인 용도 외에 사용되거나 저장되지 않습니다.`,
-    1: `정보통신망법(2012.08.18 시행) 제 23조 2(주민번호 사용제한) 규정에 따라 온라인 상 주민번호의 수집/이용을\n제한합니다.`,
-    2: `만 14세 미만은 회원가입을 제한합니다.`,
-  }
+  const AgreementButton = styled.button`
+    width: 670px;
+    height: 66px;
+    padding: 24px 130px;
+    background: #DDDDDD;
+    border-radius: 6px;
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: -0.25px;
+    color: #FFFFFF;
+  `;
 
   return(
     <App>
@@ -182,28 +203,27 @@ function SignupStep1() {
           <SignupWrapper>
             <SignupTitleWrapper>
               <SignupText>
-                <SignupStepText>STEP 1</SignupStepText>
-                <SignupTitle>본인인증</SignupTitle>
-                <SignupSubTitle>오마이뱅스 회원가입을 위한 본인인증 절차입니다.</SignupSubTitle>
+                <SignupStepText>STEP 2</SignupStepText>
+                <SignupTitle>약관동의</SignupTitle>
+                <SignupSubTitle>{SignupSubTitleText[0]}</SignupSubTitle>
               </SignupText>
               <SignupStep>
-                <SignupStepNumber>1</SignupStepNumber>
                 <SignupStepButton/>
+                <SignupStepNumber>2</SignupStepNumber>
                 <SignupStepButton/>
                 <SignupStepButton/>
               </SignupStep>
             </SignupTitleWrapper>
-            <Certification>
-              <SignupWhiteButtons>
-                <SignupWhiteButton>휴대폰 인증<Arrow/></SignupWhiteButton>
-                <SignupWhiteButton>아이핀(I-PIN) 인증<Arrow/></SignupWhiteButton>
-              </SignupWhiteButtons>
-              <SignupLists>
-                <SignupList>{SignupListText[0]}</SignupList>
-                <SignupList>{SignupListText[1]}</SignupList>
-                <SignupList>{SignupListText[2]}</SignupList>
-              </SignupLists>
-            </Certification>
+            <Agreement>
+              <SignupWhiteButton>전체 동의<CheckBox type='checkbox'/></SignupWhiteButton>
+              <AgreementLists>
+                <AgreementList>이용약관(필수)<CheckBox type='checkbox'/></AgreementList>
+                <AgreementList>개인정보 수집 및 이용 동의(필수)<CheckBox type='checkbox'/></AgreementList>
+                <AgreementList>금융정보 수집 및 이용(필수)<CheckBox type='checkbox'/></AgreementList>
+                <AgreementList>미 이용기간 연장(필수)<CheckBox type='checkbox'/></AgreementList>
+              </AgreementLists>
+              <AgreementButton>동의</AgreementButton>
+            </Agreement>
           </SignupWrapper>
         </Signup>
       </Blur>
@@ -211,4 +231,4 @@ function SignupStep1() {
   );
 }
 
-export default SignupStep1;
+export default SignupStep2;

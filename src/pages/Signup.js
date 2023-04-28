@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 import background from '../assets/background.png';
-import SaveIDCheckImgGray from '../assets/save_id_check_gray.png';
-import SaveIDCheckImgGreen from '../assets/save_id_check_green.png';
+import CheckBoxImgGray from '../assets/checkbox_gray.png';
+import CheckBoxImgGreen from '../assets/checkbox_green.png';
 import SignupNaverImg from '../assets/login_naver.png';
 import SignupKakaoImg from '../assets/login_kakao.png';
 import SignupAppleImg from '../assets/login_apple.png';
