@@ -60,7 +60,7 @@ function GNB() {
           <GNBButtonWrapper>
             <GNBButtons>
               <GNBSearchButton/>
-              <GNBLoginButton/>
+              <GNBLoginButton onClick={GoToLogin}/>
             </GNBButtons>
             <GNBMenuButton onClick={MenuButtonClick}/>
           </GNBButtonWrapper>
