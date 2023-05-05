@@ -7,8 +7,16 @@ const GlobalStyles = createGlobalStyle`
     }
     *{
         box-sizing: border-box;
+    }
+    html { // 스크롤
+        overflow-y: overlay;
+        overflow-x: hidden;
         &::-webkit-scrollbar {
-            display: none;
+            width: 10px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: hsla(0, 0%, 50%, 0.5);
+            border-radius: 100px;
         }
     }
     html, body, div, span, h1, h2, h3, h4, h5, h6, p, 

@@ -15,6 +15,7 @@ function ListPage() {
     text-align: center;
     justify-content: end;
     gap: 40px;
+    scroll-snap-type: y proximity;
   `;
 
   const PageDescription = styled.div`

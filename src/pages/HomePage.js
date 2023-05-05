@@ -1,10 +1,9 @@
 import React from 'react'
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import background from '../assets/background.png';
 import AppStoreButtonImg from '../assets/appStore_green_button.png';
 import GooglePlayButtonImg from '../assets/googlePlay_green_button.png';
-import ScrollDownImg from '../assets/scroll_down.png';
 
 function HomePage() {
   const HomePage = styled.div`
@@ -104,13 +103,38 @@ function HomePage() {
     line-height: 1em;
     letter-spacing: -0.25px;
     color: #FFFFFF;
+    opacity: 0.5;
   `;
 
-  const ScrollDownImage = styled.p`
+  const ScrollDownAnimation = keyframes`
+    0% {
+      top: 0px;
+    }
+    50% {
+      top: 30px;
+    }
+    100% {
+      top: 0px;
+    }
+  `;
+
+  const ScrollDownButtonWrapper = styled.div`
     width: 2px;
     height: 60px;
-    background-image: url(${ScrollDownImg});
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.5);
   `
+
+  const ScrollDownButton = styled.p`
+    width: 2px;
+    height: 30px;
+    opacity: 1;
+    background: #FFFFFF;
+    position: relative;
+    animation: ${ScrollDownAnimation} 2s linear infinite;
+  `;
 
   return(
     <HomePage id='0'>
@@ -125,7 +149,9 @@ function HomePage() {
         </DownloadButtons>
         <ScrollDown>
           <ScrollDownText>SCROLL DOWN</ScrollDownText>
-          <ScrollDownImage/>
+          <ScrollDownButtonWrapper>
+            <ScrollDownButton/>
+          </ScrollDownButtonWrapper>
         </ScrollDown>
       </HomePageGradation>
     </HomePage>

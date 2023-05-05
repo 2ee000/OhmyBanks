@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { Link } from "react-scroll"
 
 import GNB from '../components/GNB';
@@ -17,13 +17,23 @@ import ScrollButtonGrayImg from '../assets/scroll_button_gray.png';
 import ScrollButtonGreenImg from '../assets/scroll_button_green.png';
 
 function Home() {
+  const FadeIn = keyframes` // 새로고침시 화면 불투명도
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+  `;
+
   const App = styled.div`
     width: 100%;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     text-align: center;
-    justify-content: center;  
+    justify-content: center;
+    animation: ${FadeIn} 1s;
   `;
 
   const Scroll = styled.div`

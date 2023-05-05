@@ -1,11 +1,10 @@
 * {
   cursor: pointer;
-  width: 100;
-  position: sticky;
-  justify-content: space-between;
-  align-self: center;
-  background-color: #00a;
-  border-radius: 100%;
-  justify-self: center;
-  align-self: center;
+  
+  flex-flow: column nowrap;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+
+  white-space: pre-line;
 }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
-import LogoImg from './../assets/logo.png';
+import LogoImg from './../assets/logo.svg';
 import GNBSearchButtonImg from './../assets/search_button.png';
 import GNBLoginButtonImg from './../assets/login_button.png';
 import GNBMenuButtonImg from './../assets/menu_button.png';
@@ -9,6 +9,7 @@ import GNBMenuButtonXImg from './../assets/menu_button_x.png';
 
 function GNB() {
   const [ButtonImg, setButtonImg] = useState(GNBMenuButtonImg);
+  const [GNBHeight, setGNBHeight] = useState('70px');
   const [GNBListWidth, setGNBListWidth] = useState('');
   const [GNBRadius, setGNBRadius] = useState(200);
   const [GNBSort, setGNBSort] = useState('row');
@@ -17,21 +18,23 @@ function GNB() {
   const MenuButtonClick = () => { // 버튼 이미지 변경
     if(ButtonImg === GNBMenuButtonImg) {
       setButtonImg(GNBMenuButtonXImg);
+      setGNBHeight('auto');
+      setGNBListWidth('width: 100%;');
       setGNBRadius(36);
       setGNBSort('column');
       setGNBPadding('10px 10px 50px 40px');
       setGNBGap('10px');
-      setGNBListWidth('width: 100%;');
     } else {
       setButtonImg(GNBMenuButtonImg);
+      setGNBHeight('70px');
+      setGNBListWidth('');
       setGNBRadius(200);
       setGNBSort('row');
       setGNBPadding('10px 10px 10px 40px');
       setGNBGap('20px');
-      setGNBListWidth('');
     }
   }
-
+  
   const GoToLogin = () => {
     window.location.replace('/login');
   }
@@ -104,9 +107,9 @@ function GNB() {
     text-align: center;
     justify-content: center;
     gap: 304px;
-    margin-top: 15px;
+    padding-top: 20px;
   `;
-  // margin-top: 15px; 없애줘야함
+  // margin-top: 20px; 없애줘야함
 
   const Logo = styled.p`
     width: 240px;
@@ -118,6 +121,7 @@ function GNB() {
 
   const GNBWrapper = styled.div`
     width: 636px;
+    height: ${GNBHeight};
     padding: ${GNBPadding};
     gap: ${GNBGap};
     display: flex;
@@ -203,6 +207,7 @@ function GNB() {
 
 
   const GNBSearchButton = styled.p`
+    cursor: pointer;
     width: 24px;
     height: 24px;
     background-image: url(${GNBSearchButtonImg});

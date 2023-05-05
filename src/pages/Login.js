@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 import background from '../assets/background.png';
-import CheckBoxImgGray from '../assets/checkbox_gray.png';
-import CheckBoxImgGreen from '../assets/checkbox_green.png';
+import CircleCheckBoxImgGray from '../assets/circle_checkbox_gray.png';
+import CircleCheckBoxImgGreen from '../assets/circle_checkbox_green.png';
 import LoginNaverImg from '../assets/login_naver.png';
 import LoginKakaoImg from '../assets/login_kakao.png';
 import LoginAppleImg from '../assets/login_apple.png';
@@ -12,6 +12,10 @@ import LoginAppleImg from '../assets/login_apple.png';
 function Login() {
   const GoToSignup = () => {
     window.location.replace('/signup');
+  }
+
+  const GoToHome = () => {
+    window.location.replace('/');
   }
 
   const App = styled.div`
@@ -67,6 +71,7 @@ function Login() {
   `;
 
   const TitleGreen = styled(Title)`
+    cursor: pointer;
     font-weight: 700;
     color: #12B679;
   `;
@@ -134,11 +139,11 @@ function Login() {
     appearance: none;
     width: 16px;
     height: 16px;
-    background-image: url(${CheckBoxImgGray});
+    background-image: url(${CircleCheckBoxImgGray});
     background-repeat: no-repeat;
     background-size: cover;
     &:checked {
-      background-image: url(${CheckBoxImgGreen});
+      background-image: url(${CircleCheckBoxImgGreen});
     }
   `;
 
@@ -253,7 +258,7 @@ function Login() {
       <Blur>
         <Login>
           <LoginWrapper>
-            <Title>어서오세요!<TitleGreen>{LoginTitle[0]}</TitleGreen>에 오신걸 환영합니다.</Title>
+            <Title>어서오세요!<TitleGreen onClick={GoToHome}>{LoginTitle[0]}</TitleGreen>에 오신걸 환영합니다.</Title>
             <LoginForm>
               <Text>로그인</Text>
               <InputWrapper>

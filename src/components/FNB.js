@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import LogoImg from './../assets/logo.png';
+import LogoImg from './../assets/logo.svg';
 import FacebookButtonImg from './../assets/facebook_button.png';
 import YoutubeButtonImg from './../assets/youtube_button.png';
 import BlogButtonImg from './../assets/blog_button.png';
@@ -19,9 +19,11 @@ function FNB() {
   `;
 
   const Logo = styled.p`
-    width: 174px;
-    height: 80px;
+    width: 287px;
+    height: 47px;
     background-image: url(${LogoImg});
+    background-repeat: no-repeat;
+    background-size: contain;
   `;
 
   const About = styled.div`
