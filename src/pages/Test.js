@@ -12,6 +12,7 @@ import SignupArrow from '../assets/signup_arrow.png';
 
 const App = styled.div`
 width: 100%;
+height: 100vh;
 display: flex;
 align-items: center;
 text-align: center;
@@ -410,7 +411,7 @@ const MarketingText = styled(SignupConditionText)`
 font-size: 18px;
 `;
 
-function Signup() {
+function Test() {
   const [Step, setStep] = useState(0);
   const ChangeStep = () => {
     if(Step === 0) {
@@ -692,4 +693,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default Test;

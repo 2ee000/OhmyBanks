@@ -4,9 +4,9 @@ import styled from 'styled-components';
 import background from '../assets/background.png';
 import CircleCheckBoxImgGray from '../assets/circle_checkbox_gray.png';
 import CircleCheckBoxImgGreen from '../assets/circle_checkbox_green.png';
-import LoginNaverImg from '../assets/login_naver.png';
-import LoginKakaoImg from '../assets/login_kakao.png';
-import LoginAppleImg from '../assets/login_apple.png';
+import NaverImg from '../assets/naver.svg';
+import KakaoImg from '../assets/kakao.svg';
+import AppleImg from '../assets/apple.svg';
 
 
 function Login() {
@@ -19,25 +19,26 @@ function Login() {
   }
 
   const App = styled.div`
-    width: 100%;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: end;
+  &::before {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background-image: url(${background});
     background-repeat: no-repeat;
     background-size: cover;
-  `;
-
-  const Blur = styled.div`
-    width: 100%;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: right;
-    background: rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
-  `;
+    filter: blur(10px);
+    transform: scale(1.025);
+    z-index: -1; 
+    content: "";
+  }
+  `; // transform: scale(1.025); 블러처리된 테두리를 안보이게 하기 위해 확대
 
   const Login = styled.div`
     width: 1245px;
@@ -242,54 +243,52 @@ function Login() {
   const LoginNaver = styled.button`
     width: 60px;
     height: 60px;
-    background-image: url(${LoginNaverImg});
+    background-image: url(${NaverImg});
   `;
 
   const LoginKakao = styled(LoginNaver)`
-    background-image: url(${LoginKakaoImg});  
+    background-image: url(${KakaoImg});  
   `;
 
   const LoginApple = styled(LoginNaver)`
-    background-image: url(${LoginAppleImg});  
+    background-image: url(${AppleImg});  
   `;
 
   return(
     <App>
-      <Blur>
-        <Login>
-          <LoginWrapper>
-            <Title>어서오세요!<TitleGreen onClick={GoToHome}>{LoginTitle[0]}</TitleGreen>에 오신걸 환영합니다.</Title>
-            <LoginForm>
-              <Text>로그인</Text>
-              <InputWrapper>
-                <Input type='text' placeholder='아이디'/>
-                <Input type='password' placeholder='비밀번호 8자 ~ 20자 입력'/>
-                <SaveID for='checkbox'>
-                  <CheckBox id='checkbox' type='checkbox'/>
-                  <SaveIDText>아이디 저장</SaveIDText>
-                </SaveID>
-              </InputWrapper>
-              <LoginButtons>
-                <LoginButton>로그인</LoginButton>
-                <SignupButton onClick={GoToSignup}>회원가입</SignupButton>
-                <Search>
-                  <SearchText>아이디 찾기</SearchText>
-                  <SearchBar/>
-                  <SearchText>비밀번호 찾기</SearchText>
-                </Search>
-              </LoginButtons>
-              <AnotherLogin>
-                <AnotherLoginText>또는</AnotherLoginText>
-                <AnotherLoginButton>
-                  <LoginNaver/>
-                  <LoginKakao/>
-                  <LoginApple/>
-                </AnotherLoginButton>
-              </AnotherLogin>
-            </LoginForm>
-          </LoginWrapper>
-        </Login>
-      </Blur>
+      <Login>
+        <LoginWrapper>
+          <Title>어서오세요!<TitleGreen onClick={GoToHome}>{LoginTitle[0]}</TitleGreen>에 오신걸 환영합니다.</Title>
+          <LoginForm>
+            <Text>로그인</Text>
+            <InputWrapper>
+              <Input type='text' placeholder='아이디'/>
+              <Input type='password' placeholder='비밀번호 8자 ~ 20자 입력'/>
+              <SaveID for='checkbox'>
+                <CheckBox id='checkbox' type='checkbox'/>
+                <SaveIDText>아이디 저장</SaveIDText>
+              </SaveID>
+            </InputWrapper>
+            <LoginButtons>
+              <LoginButton>로그인</LoginButton>
+              <SignupButton onClick={GoToSignup}>회원가입</SignupButton>
+              <Search>
+                <SearchText>아이디 찾기</SearchText>
+                <SearchBar/>
+                <SearchText>비밀번호 찾기</SearchText>
+              </Search>
+            </LoginButtons>
+            <AnotherLogin>
+              <AnotherLoginText>또는</AnotherLoginText>
+              <AnotherLoginButton>
+                <LoginNaver/>
+                <LoginKakao/>
+                <LoginApple/>
+              </AnotherLoginButton>
+            </AnotherLogin>
+          </LoginForm>
+        </LoginWrapper>
+      </Login>
     </App>
   );
 }

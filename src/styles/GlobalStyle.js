@@ -30,9 +30,6 @@ const GlobalStyles = createGlobalStyle`
         font-family: 'Noto Sans KR', sans-serif;
         background-color: #FFFFFF;
     }
-    ol, ul{
-        list-style: none;
-    }
     button {
         border: 0;
         background: transparent;
